@@ -1,0 +1,30 @@
+大まかなローダーの処理の流れ
+
+sass-loader を使って Sass を CSS へ変換
+css-loader で CSS を JavaScript（CommonJS） に変換
+MiniCssExtractPlugin.loader で CSS を 抽出して別ファイルとして出力
+
+css-loader の url オプションに false を指定して URL の解決を無効に
+スタイルシートで読み込む画像は出力先の dist 配下に配置
+
+productionモードだとソースマップを出力しないようにしている
+
+clean-dwebpack-pluginを使ってビルド前にdistフォルダーをお掃除
+・npm run dev または　npm run watch　をした後にnpm run build
+すると、productionモードで生成されたソースマップファイルは残らない
+
+file-loader
+スタイルシートで読み込んでいる画像などを、出力フォルダーにコピーして参照することができる
+src フォルダーに画像を配置して、file-loader によって画像が dist フォルダーにコピーされる
+
+postCSS（とりあえず入れただけ）
+
+    Autoprefixer	ベンダープレフィックスを付与
+    CSS Declaration Sorter	CSS プロパティをソート
+    PostCSS Sort Media Queries	メディアクエリをまとめる
+
+webpack-dev-server
+・watch オプション（--watch  ）を利用すればファイルが変更されると自動的に webpack コマンドを
+実行するようにはできますがブラウザには反映されません。webpack-dev-server を使えばファイルの変更が自動的にブラウザに反映されるようにできます。
+
+
