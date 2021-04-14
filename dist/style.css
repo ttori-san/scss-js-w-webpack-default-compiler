@@ -3,4 +3,10 @@ p {
   color: white;
 }
 
+.header {
+  background-color: aqua;
+  color: black;
+  font-weight: bold;
+}
+
 /*# sourceMappingURL=style.css.map*/
